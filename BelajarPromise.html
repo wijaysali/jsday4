@@ -1,0 +1,28 @@
+<html>
+	<head>
+   		<title>Belajar Promise</title>
+	</head>
+
+	<body>
+	<p></p>
+    <p></p>
+    <p></p>
+	<script>
+            // Format Promise
+            // let myPromise = new Promise(function(resolve, reject){
+            // });
+
+            let myPromise = new Promise(resolve, reject){
+                setTimeout(function(){
+                    resolve("Hello World 2");
+                },1000);
+            });
+
+            myPromise.then(function(success){
+                console.log(success);
+                console.log("Hello World 1");
+            });
+            
+	</script>
+	</body>
+</html>

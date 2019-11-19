@@ -1,0 +1,42 @@
+<html>
+	<head>
+   		<title>Belajar CallBack</title>
+	</head>
+	<body>
+	<p></p>
+    <p></p>
+    <p></p>
+		<script>
+        //    case 1
+        //    data=requestAjax() 
+        //    showResult(data)
+
+           function requestAjax(callback){
+
+            //initiate library XML HttpRequest
+               var xhr = new XMLHttpRequest();
+             //set target request
+               xhr.open('GET','https://jsonplaceholder.typicode.com/users/1')
+              //terapkan callback
+               xhr.onLoad = function(){
+                   if(xhr.status === 200){
+                       callback(xhr.responseText)
+                   }else{
+                       callback('Failed')
+                   }
+               }
+            //mulai request   
+            xhr.send()
+           }
+
+           function showResult(data){
+               if (data != 'Failed'){
+                   //Tampilkan data
+                   data=JSON.parse(data)
+                   console.log(data)
+               }
+           }
+           requestAjax(showResult)
+    	</script>
+	</body>
+</html>
